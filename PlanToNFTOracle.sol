@@ -94,4 +94,6 @@ contract PlanToNFTOracle is ChainlinkClient {
     return ( keccak256(abi.encodePacked(_taskId1)) == keccak256(abi.encodePacked(_taskId2)) );
   }
 
+
+
 }
