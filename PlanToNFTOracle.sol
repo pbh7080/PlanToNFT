@@ -10,7 +10,7 @@ contract PlanToNFTOracle is ChainlinkClient {
   bytes32 private jobId;
   uint256 private oraclePayment;
   address OracleAddress;
-  address public owner;
+  address public OracleOwner;
 
   event RequestValue(bytes32 requestId, uint256 _value);
 
@@ -22,7 +22,7 @@ contract PlanToNFTOracle is ChainlinkClient {
     //OracleAddress = 0xCC79157eb46F5624204f47AB42b3906cAA40eaB7;
     jobId = "ca98366cc7314957b8c012c72f05aeeb";
     oraclePayment= 100000000000000000; // = 0.1 LINK 
-    owner = msg.sender;
+    OracleOwner = msg.sender;
   }
 
    function requestAPIValue(string memory _taskId) public returns (bytes32 requestId) {
@@ -86,7 +86,7 @@ contract PlanToNFTOracle is ChainlinkClient {
   }
 
   modifier onlyOwner() {
-    require(msg.sender == owner);
+    require(msg.sender == OracleOwner);
     _;
   }
 
