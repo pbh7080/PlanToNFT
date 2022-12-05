@@ -32,6 +32,8 @@ contract PlanToNFTOracle is ChainlinkClient {
             this.fulfillValue.selector
         );
 
+        /*
+
         if(stringCompare(_taskId, "NmpmTDNEMVdFOElpRl91RQ")){ //0
           req.add("get","https://distributed-system-app.herokuapp.com/rate/NmpmTDNEMVdFOElpRl91RQ");
         }
@@ -50,6 +52,9 @@ contract PlanToNFTOracle is ChainlinkClient {
         else {
           req.add("get","https://distributed-system-app.herokuapp.com/rate"); // default
         }
+
+        */
+       req.add("get","https://distributed-system-app.herokuapp.com/rate/${_taskId}");
         req.add("path", "rate");
         req.addInt("times", 1);
 
